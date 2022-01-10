@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding_Evaluation_Week3</title>
+    <style>
+        *{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        
+
+        
+
+    </style>
+</head>
+<body>
+    <form id="form">
+        <label for="title">Title:</label>
+        <input type="text" id="title" />
+        <label for="description">Description:</label>
+        <input type="text" id="description" />
+        <input type="submit" id="submit" value="Submit"/>
+    </form>
+    <div class="course-card-container">
+
+    </div>
+
+    <script>
+        var body = document.querySelector("body");
+            body.style.background = "lightblue";
+
+        var course_container = document.getElementsByClassName("course-card-container")[0];
+            course_container.setAttribute("class" , course_container);
+            course_container.style.marginTop = "20px";
+
+        var form = document.getElementById("form");
+            form.style.background = "orange";
+            form.style.padding = "20px";
+            form.style.textAlign = "center";
+            form.style.fontSize = "20px";
+
+        var titl = document.getElementById("title");
+            titl.style.fontSize = "20px";
+            titl.style.marginRight = "10px"
+        var descrip = document.getElementById("description");
+            descrip.style.fontSize = "20px";
+            descrip.style.marginRight = "10px"
+
+        var submit = document.getElementById("submit");
+             submit.style.fontSize = "20px";
+
+        submit.addEventListener('click' , handelData);
+
+        function handelData(event){
+            event.preventDefault()
+            
+            var titl = document.getElementById("title").value ;
+            var descrip = document.getElementById("description").value ;
+            
+            var course_card = document.createElement("div");
+            course_card.setAttribute("class" , course_card) ;
+            course_card.style.margin = "16px";
+            course_card.style.textAlign = "center";
+            course_card.style.backgroundColor = "pink";
+
+            var course_name = document.createElement("div");
+            course_name.setAttribute("class" , course_name) ;
+            course_name.textContent = titl;
+            course_name.style.fontSize = "25px";
+            course_name.style.marginTop = "20px";
+
+            var course_discription = document.createElement("div");
+            course_discription.setAttribute("class" , course_discription) ;
+            course_discription.textContent = descrip;
+            course_discription.style.fontSize = "20px";
+            course_discription.style.marginTop = "20px";
+
+            var detail = document.createElement("button");
+            detail.setAttribute("class" , detail) ;
+            detail.textContent = "Detail";
+            detail.style.fontSize = "20px";
+            detail.style.padding = "5px";
+            detail.style.backgroundColor = "lightgreen";
+
+            var apply = document.createElement("button");
+            apply.setAttribute("class" , apply) ;
+            apply.textContent = "Apply";
+            apply.style.fontSize = "20px";
+            apply.style.padding = "5px";
+            apply.style.backgroundColor = "lightgreen";
+
+
+            var div_for_button = document.createElement("div");
+            div_for_button.setAttribute("class" , div_for_button);
+            div_for_button.style.display = "flex";
+            div_for_button.style.justifyContent = "space-evenly"
+            div_for_button.style.marginTop = "50px";
+
+            div_for_button.appendChild(detail);
+            div_for_button.appendChild(apply);
+            course_card.appendChild(course_name);
+            course_card.appendChild(course_discription);
+            course_card.appendChild(div_for_button);
+            course_container.appendChild(course_card)
+
+
+
+            course_container.style.display = "flex";
+            course_container.style.flexWrap = "wrap";
+            course_card.style.border = "2px solid black";
+            course_card.style.width = "30%";
+            course_card.style.height = "300px";
+            course_card.style.borderRadius = "10px 65px";
+
+            
+
+
+
+        }
+    </script>
+</body>
+</html>
